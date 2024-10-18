@@ -96,7 +96,7 @@ function jogo() {
         }else if (pontuacao == 6 && tent > 8 && tent <= 12){
             $("#cond").text("Parabéns, acertou todos os pares com algumas tentativas!");
             $("#vit").text("Jogar novamente");
-        } else{
+        } else if (pontuacao == 6 && tent > 12){
             $("#cond").text("Que memória ruim, treine mais!!!");
             $("#vit").text("Jogar novamente");
         }
