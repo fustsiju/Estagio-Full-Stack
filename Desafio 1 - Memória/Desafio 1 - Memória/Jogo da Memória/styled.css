@@ -5,16 +5,13 @@ body {
     align-items: center;
     background: grey ;
     margin-top:100px;
+    user-select: none;
 }
 
 h1 {
     margin-bottom: 20px;
-    user-select: none;
 }
 
-h2{
-    user-select: none;
-}
 
 .container {
     display: grid;
@@ -37,10 +34,10 @@ h2{
     font-size: 24px;
     border-radius: 10px;
     position: relative;
-    user-select: none;
     color:black;
     transition: all 0.2s;
     font-weight:bold;
+    pointer-events:none;
 }
 
 .inf{
