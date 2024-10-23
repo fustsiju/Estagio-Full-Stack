@@ -1,0 +1,182 @@
+.tabuleiro {
+    display: grid;
+    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px;
+    position: absolute;
+    top:160px;   
+    pointer-events: none;
+    background: #AAA;
+}
+
+h1{
+    font-weight: 900;
+    font-size: 5em;
+    color:black;
+}
+body {
+  display: flex;
+  justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
+  user-select: none;
+  background: #AAA;
+  transition: 0.5s all;
+}
+.nomeJogador1{
+    position: absolute;
+    left:250px;
+    top:200px;
+    width: 200px;
+    height: 100px;
+    font-size: 3em;
+    background:none;
+    text-align: center;
+    transition: 1s all;
+    
+}
+.pont1{
+    position: absolute;
+    left:250px;
+    top:300px;
+    width: 200px;
+    height: 100px;
+    background:none;
+    text-align: center;
+    font-size: 5em;
+
+}
+.nomeJogador2{
+    position: absolute;
+    right:250px;
+    top:200px;
+    width: 200px;
+    height: 100px;
+    font-size: 3em;
+    text-align: center;
+    background:none;
+    transition: 1s all;
+    text-overflow: clip;
+}
+.pont2{
+    position: absolute;
+    right:250px;
+    top:300px;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    background:none;
+    font-size: 5em;
+}
+.jogadores{
+    position: absolute;
+    top:25%;
+    display: flex;
+    justify-content: center;
+    background: #d4d4d4;
+    border-radius:10px;
+    width: 300px;
+    border: 2px solid black;
+    height: 400px;
+    z-index: 1;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.jogadores input{
+    padding: 5px;
+    width: 90%;
+    height: 25px;
+    border-radius: 10px;
+}
+.jogadores #jogador1{
+    color:#5d8aa8
+}
+.jogadores #jogador2{
+    color:#708090
+}
+.jogadores button#comecar{
+    position: absolute;
+    top:80%;
+    left:50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 50px;
+    background: rgb(128, 83, 0);
+    border: none;
+    border-radius:10px;
+    transition: 0.3s all;
+}
+.jogadores button#comecar:hover{
+    background: green;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.jogadores button#md1,#md3,#md5{
+    position: relative;
+    top:30px;
+    left:30px;
+    background: rgb(93, 185, 201);
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    transition: 0.5s all;
+}
+.jogadores button#md1:hover,#md3:hover,#md5:hover{
+    background: rgb(59, 113, 122);
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.box {
+  background: transparent;
+  border: 2px solid #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  transition: 0.5s all;
+}
+
+.box:hover{
+    background: rgb(175, 114, 44);
+    cursor: pointer;
+    box-shadow: 5px 5px 5px 5px rgba(0.5, 0.5, 0.5, 0.5);
+}
+.botoes{
+    position: absolute;
+    bottom: 50px;
+    height: 100px;
+    width: 800px;
+    border: none;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    user-select: none;
+    transition: 0.5s all;
+}
+
+.botoes #resetTabuleiro{
+    background: rgb(175, 114, 44);
+    border-radius:10px;
+    font-size:1em;
+    padding:15px;
+    transition: 0.3s all;
+    
+}
+.botoes #resetTabuleiro:hover{
+    background: rgb(45, 117, 45);
+    color: white;
+    cursor:pointer;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    font-size: 1.01em;
+}
+.botoes #resetJogo{
+    background: rgb(175, 114, 44);
+    border-radius:10px;
+    font-size:1em;
+    padding:15px;
+    transition: 0.3s all;
+}
+.botoes #resetJogo:hover{
+    background: rgb(250, 61, 61);
+    color: white;
+    cursor:pointer;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    font-size: 1.01em;
+}
