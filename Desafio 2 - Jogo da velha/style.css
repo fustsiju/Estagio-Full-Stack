@@ -5,9 +5,10 @@
     position: absolute;
     top:160px;   
     pointer-events: none;
+    box-sizing: border-box;
     background: #AAA;
+    border:5px solid #aaa;
 }
-
 h1{
     font-weight: 900;
     font-size: 5em;
@@ -31,7 +32,6 @@ body {
     background:none;
     text-align: center;
     transition: 1s all;
-    
 }
 .pont1{
     position: absolute;
@@ -42,7 +42,7 @@ body {
     background:none;
     text-align: center;
     font-size: 5em;
-
+    display: none;
 }
 .nomeJogador2{
     position: absolute;
@@ -65,6 +65,7 @@ body {
     text-align: center;
     background:none;
     font-size: 5em;
+    display: none;
 }
 .jogadores{
     position: absolute;
@@ -125,14 +126,13 @@ body {
 }
 .box {
   background: transparent;
-  border: 2px solid #555;
+  border: 0.1px solid #555;
   display: flex;
   align-items: center;
   justify-content: center;
   color: black;
   transition: 0.5s all;
 }
-
 .box:hover{
     background: rgb(175, 114, 44);
     cursor: pointer;
@@ -150,14 +150,12 @@ body {
     user-select: none;
     transition: 0.5s all;
 }
-
 .botoes #resetTabuleiro{
     background: rgb(175, 114, 44);
     border-radius:10px;
     font-size:1em;
     padding:15px;
     transition: 0.3s all;
-    
 }
 .botoes #resetTabuleiro:hover{
     background: rgb(45, 117, 45);
