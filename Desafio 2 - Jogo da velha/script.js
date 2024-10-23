@@ -130,8 +130,6 @@ function reiniciar() {
             $(this).on("click", function (e) {
                 partida++;
                 localStorage.setItem('partida', partida);
-                console.log(localStorage.getItem(vez))
-                console.log(vez)
                 if (vez == 2 || localStorage.getItem(vez) == 2) {
                     $(this).html("X");
                     pos[$(this).attr('id')] = 'X';
@@ -140,7 +138,6 @@ function reiniciar() {
                         "background": "#5d8aa8",
                         "color": "black"
                     });
-                    console.log(localStorage.getItem('posic'));
                     vez = 1;
                     localStorage.setItem("vez", vez);
                     jogadas++;
@@ -152,7 +149,6 @@ function reiniciar() {
                         "background": "#708090",
                         "color": "black"
                     });
-                    console.log(localStorage.getItem('posic'));
                     vez = 2;
                     localStorage.setItem("vez", vez);
                     jogadas++;
