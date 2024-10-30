@@ -1,0 +1,183 @@
+body{
+    background: #FAFAFA;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+}
+
+.containe{
+    position: relative;
+    min-width: 60vw;
+    min-height: 45vh;
+    display: grid;
+    flex-wrap: wrap;
+    padding-left: 15px;
+    justify-content: left;
+    border: 1px solid black;
+    padding-bottom: 20px;
+}
+.busca{
+    position: relative;
+    max-height: 30vh;
+}
+.formulario{
+    width: 55vw;
+    display: inline;
+}
+.formulario input, select{
+    margin-right: 50px;
+    border-bottom: 1.5px solid #aaa;
+    padding: 5px;
+}
+.formulario input,select:focus{
+    outline: none;
+}
+.formulario #cidadeEstagiario{
+    width: 300px;
+    min-width: 100px;
+    max-width: 300px;
+}
+
+.botoes{
+    position: relative;
+    display: flex;
+    float: inline-end;
+    margin-right: 5em;
+}
+button{
+    position: relative;
+    margin: 1px;
+    margin-top: 25px;
+    padding: 10px;
+    font-size: 0.8em;
+    border-radius: 1px none;
+}
+#busca{
+    color: white;
+    background: #1565C0;
+    border: none;
+    border-radius: 3px;
+}
+#busca:hover{
+    background: #193657;
+    cursor: pointer;
+}
+#limpa{
+    border: none;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+#limpa:hover{
+   cursor: pointer;
+   background: rgb(255, 44, 44);
+   color: white;
+}
+input, select{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: none;
+}
+
+input,select::-webkit-outer-spin-button, input,select::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+.info{
+    position: relative;
+    display: grid;
+    grid-template-rows: 40px;
+    grid-template-columns: 140px 140px 140px 140px 140px 140px 140px 140px;
+    grid-row: auto;
+    text-align: center;
+    border-bottom: 1px solid #aaa;
+    margin-right: 15px;
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+#pesquisa{
+    color:  #1565C0;
+    border-bottom: 2px solid #1565C0;
+    height: 40px;
+    width: 250px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#tab{
+    display: grid;
+    grid-template-rows: 40px;
+    grid-template-columns: 140px 140px 140px 140px 140px 140px 140px 140px;
+    grid-row: auto;
+    text-align: center;
+}
+p#encontrado{
+    position: relative;
+    top:10px;
+    text-align: center;
+}
+.tabelaResult {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.tabelaResult table {
+    max-width: 900px;
+    border-collapse: collapse;
+    font-family: arial;
+    text-align: center;
+}
+
+.tabelaResult table td,th {
+    position: relative;
+    padding: 5px;
+    max-width: 140px;
+    border: solid 1px black;
+    font-size: 15px;
+}
+
+.tabelaResult table th {
+    background-color: rgb(230,230,230);
+}
+
+.tabelaResult table td {
+    padding-left: 6px;
+}
+nav{
+    display: flex;
+    justify-content: flex-end;
+    border-top: 0.1px solid grey;
+}
+.navg #paginas{
+    display: flex;
+    color: #1565C0;
+}
+.navegacao{
+    display: flex;
+    list-style: none;
+    margin: 20px;
+    padding: 0px;
+}
+.navegacao ul{
+    display: block;
+    justify-content: center;
+}
+.navegacao li{
+    margin-right: 0px;
+ 
+}
+.navegacao #add{
+    width: 50px;
+    height: 20px;
+}
+.navegacao #anterior:hover, #proximo:hover {
+    background: #e6e6e6;
+    cursor: pointer;
+}
+.navg{
+    display: none;
+    text-align: center;
+}
+
