@@ -13,17 +13,17 @@ let vitoriasX = localStorage.getItem('vitoriasX') ? parseInt(localStorage.getIte
 let vitoriasO = localStorage.getItem('vitoriasO') ? parseInt(localStorage.getItem('vitoriasO')) : 0;
 let partida = localStorage.getItem('partida') ? parseInt(localStorage.getItem('partida')) : 0;
 let partidas = vitoriasO + vitoriasX;
+let vezInicial = 0;
 
     function jogo() {
     
-
       iniciar();
         
         $(".box").each(function () {
             $(this).on("click", function (e) {
                 partida++;
                 localStorage.setItem('partida', partida);
-                if (vez == 2 || localStorage.getItem(vez) == 2) {
+                if (vez === 2 || localStorage.getItem(vez) === 2 && vezInicial === 2) {
                     $(this).html("X");
                     pos[$(this).attr('id')] = 'X';
                     localStorage.setItem("posic", pos);
@@ -31,9 +31,14 @@ let partidas = vitoriasO + vitoriasX;
                         "background": "#5d8aa8",
                         "color": "black"
                     });
+                    
+                    jogadas++;
+                    if(jogadas === 1){
+                        vezInicial = 2;
+                    }
                     vez = 1;
                     localStorage.setItem("vez", vez);
-                    jogadas++;
+   
                 } else {
                     $(this).html("O");
                     pos[$(this).attr('id')] = 'O';
@@ -42,9 +47,13 @@ let partidas = vitoriasO + vitoriasX;
                         "background": "#708090",
                         "color": "black"
                     });
+                    
+                    jogadas++;
+                    if(jogadas === 1){
+                        vezInicial = 1;
+                    }
                     vez = 2;
                     localStorage.setItem("vez", vez);
-                    jogadas++;
                 }
                 $(this).css({
                     "font-size": "10em",
@@ -52,41 +61,47 @@ let partidas = vitoriasO + vitoriasX;
                     "user-select": "none"
                 });
                 //linha
-                if (pos[0] == pos[1] && pos[0] == pos[2]) {
+                if (pos[0] === pos[1] && pos[0] === pos[2]) {
                     venceu(0, 1, 2);
                 } else
-                    if (pos[3] == pos[4] && pos[3] == pos[5]) {
+                    if (pos[3] === pos[4] && pos[3] === pos[5]) {
                         venceu(3, 4, 5);
                     } else
-                        if (pos[6] == pos[7] && pos[6] == pos[8]) {
+                        if (pos[6] === pos[7] && pos[6] === pos[8]) {
                             venceu(6, 7, 8);
                         }
 
                 //coluna 
 
-                else if (pos[0] == pos[3] && pos[0] == pos[6]) {
+                else if (pos[0] === pos[3] && pos[0] === pos[6]) {
                     venceu(0, 3, 6);
                 } else
-                    if (pos[1] == pos[4] && pos[1] == pos[7]) {
+                    if (pos[1] === pos[4] && pos[1] === pos[7]) {
                         venceu(1, 4, 7);
                     } else
-                        if (pos[2] == pos[5] && pos[2] == pos[8]) {
+                        if (pos[2] === pos[5] && pos[2] === pos[8]) {
                             venceu(2, 5, 8);
                         }
 
                 //diagonal
-                else if (pos[0] == pos[4] && pos[0] == pos[8]) {
+                else if (pos[0] === pos[4] && pos[0] === pos[8]) {
                     venceu(0, 4, 8);
                 } else
-                    if (pos[2] == pos[4] && pos[2] == pos[6]) {
+                    if (pos[2] === pos[4] && pos[2] === pos[6]) {
                         venceu(2, 4, 6);
                     }
 
                 //maximo de jogadas    
-                else if (jogadas == 9) {
+                else if (jogadas === 9) {
 
                     $(".nomeJogador1").css({ "color": "yellow", "font-size": "3em" });
                     $(".nomeJogador2").css({ "color": "yellow", "font-size": "3em" });
+
+                    if(vez === 2){
+                        vez = 1;
+                    }else{
+                        vez = 2;
+                    } 
 
                     setTimeout(() => {
                         reiniciar();
@@ -105,7 +120,7 @@ let partidas = vitoriasO + vitoriasX;
     }
 
     function iniciar() {
-        if(posic == 0){
+        if(posic === 0){
             pos.forEach(posicao => {
                 $('.tabuleiro').append(`<div id="${i}" class="box"></div>`);
                 i++;
@@ -114,12 +129,12 @@ let partidas = vitoriasO + vitoriasX;
         posic = posic.replaceAll(',', "");
             pos.forEach(posicao => {
                 $('.tabuleiro').append(`<div id="${i}" class="box"></div>`);
-                if(posic[i] == 'X'){
+                if(posic[i] === 'X'){
                     $("#" + i).html("X");
                     $("#" + i).css({"background": "#5d8aa8",
                                      "color": "black"});
                     pos[i] = "X";
-                } else if (posic[i] == 'O'){
+                } else if (posic[i] === 'O'){
                     $("#" + i).html("O");
                     $("#" + i).css({
                         "background": "#708090",
@@ -154,16 +169,44 @@ let partidas = vitoriasO + vitoriasX;
         i = 0;
         jogadas = 0;
         posic = 0;
+        
+    }
+
+    function reiniciarTabuleiro() {
+        $(".tabuleiro").remove();
+        $("body").append(`<div class="tabuleiro"></div>`)
+    
+        pos = [1, 2, 3,
+            4, 5, 6,
+            7, 8, 9];
+        i = 0;
+        jogadas = 0;
+        posic = 0;
+        if(vezInicial === 2){
+            vez = 2;
+        }else{
+            vez = 1;
+        }
+        vezInicial = 0;
     }
     
     function jogadores() {
-        if(jogador1 == '' && jogador2 == ''|| jogador1 == null && jogador2 == null){
+        if(jogador1 === '' && jogador2 === ''|| jogador1 === null && jogador2 === null){
     
-            jogador1 = $("#jogador1").val();
-            jogador2 = $("#jogador2").val();
+            jogador1 = $("#jogador1").val() ? $("#jogador1").val() : localStorage.getItem(jogador1);
+            jogador2 = $("#jogador2").val() ? $("#jogador2").val() : localStorage.getItem(jogador2);
         
         } 
-        if (jogador1 != '' && jogador2 != '') {
+        if(jogador1 === jogador2){
+            console.log(jogador1)
+            console.log(jogador2)
+            $("#mensagem").css("display", "flex");
+            $("#jogador1").val('');
+            $("#jogador2").val('');
+            jogador1 = '';
+            jogador2 = '';
+        }
+        if (jogador1 !== '' && jogador2 !== '' ) {
             $(".jogadores").css("display", "none");
             $(".tabuleiro").css("pointer-events", "all");
             $(".nomeJogador1").text(jogador1);
@@ -194,24 +237,21 @@ let partidas = vitoriasO + vitoriasX;
         melhorDe = 1;
         localStorage.setItem("melhorDe", melhorDe);
         $("#md1").css({ "background": "rgb(59, 113, 122)" });
-        $("#md3").css({ "background": "rgb(93, 185, 201)" });
-        $("#md5").css({ "background": "rgb(93, 185, 201)" });
+        $("#md3, #md5").css({ "background": "rgb(93, 185, 201)" });
     });
     
     $("#md3").on("click", function () {
         melhorDe = 3;
         localStorage.setItem("melhorDe", melhorDe);
         $("#md3").css({ "background": "rgb(59, 113, 122)" });
-        $("#md1").css({ "background": "rgb(93, 185, 201)" });
-        $("#md5").css({ "background": "rgb(93, 185, 201)" });
+        $("#md1, #md5").css({ "background": "rgb(93, 185, 201)" });
     });
     
     $("#md5").on("click", function () {
         melhorDe = 5;
         localStorage.setItem("melhorDe", melhorDe);
         $("#md5").css({ "background": "rgb(59, 113, 122)" });
-        $("#md3").css({ "background": "rgb(93, 185, 201)" });
-        $("#md1").css({ "background": "rgb(93, 185, 201)" });
+        $("#md1, #md3").css({ "background": "rgb(93, 185, 201)" });
     });
     
 function venceu(a, b, c) {
@@ -237,7 +277,7 @@ function venceu(a, b, c) {
         "pointer-events": "none",
         "user-select": "none"
     });
-    if (vez == 1) {
+    if (vez === 1) {
         vitoriasX++;
         partida = 0;
         $(".nomeJogador1").css({ "color": "green", "font-size": "4em" });
@@ -255,11 +295,10 @@ function venceu(a, b, c) {
         $(".pont2").text(vitoriasO);
         pos = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         localStorage.setItem("posic",pos);
-
     }
 
     vencedor();
-    if (fim == 0) {
+    if (fim === 0) {
         setTimeout(() => {
             reiniciar();
         }, 2000);
@@ -280,7 +319,7 @@ function removerTudo() {
 }
 
 function vencedor() {
-    if (vitoriasX == melhorDe) {
+    if (vitoriasX === melhorDe) {
         setTimeout(() => {
             removerTudo();
             $("#repetir").text("NOVO JOGO")
@@ -292,8 +331,7 @@ function vencedor() {
             });
         }, 1500);
         fim = 1
-
-    } else if (vitoriasO == melhorDe) {
+    } else if (vitoriasO === melhorDe) {
         setTimeout(() => {
             removerTudo();
             $("#resetTabuleiro").remove();
@@ -318,7 +356,7 @@ setTimeout(() => {
 
 // reset
 $("#resetTabuleiro").on("click", function () {
-    reiniciar();
+    reiniciarTabuleiro();
     jogo();
 });
 $("#resetJogo").on("click", function () {
