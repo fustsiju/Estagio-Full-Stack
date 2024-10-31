@@ -320,6 +320,7 @@ function removerTudo() {
 
 function vencedor() {
     if (vitoriasX === melhorDe) {
+        localStorage.clear();
         setTimeout(() => {
             removerTudo();
             $("#repetir").text("NOVO JOGO")
@@ -332,6 +333,7 @@ function vencedor() {
         }, 1500);
         fim = 1
     } else if (vitoriasO === melhorDe) {
+        localStorage.clear();
         setTimeout(() => {
             removerTudo();
             $("#resetTabuleiro").remove();
