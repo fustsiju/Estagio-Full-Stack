@@ -8,7 +8,9 @@
     box-sizing: border-box;
     background: #AAA;
     border:5px solid #aaa;
+
 }
+
 h1{
     font-weight: 900;
     font-size: 5em;
@@ -32,6 +34,7 @@ body {
     background:none;
     text-align: center;
     transition: 1s all;
+    
 }
 .pont1{
     position: absolute;
@@ -43,6 +46,7 @@ body {
     text-align: center;
     font-size: 5em;
     display: none;
+
 }
 .nomeJogador2{
     position: absolute;
@@ -71,6 +75,7 @@ body {
     position: absolute;
     top:25%;
     display: flex;
+    text-align: center;
     justify-content: center;
     background: #d4d4d4;
     border-radius:10px;
@@ -79,6 +84,14 @@ body {
     height: 400px;
     z-index: 1;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+form{
+    padding: 20px;
+    padding-top: 30px;
+}
+label{
+    font-weight: 900;
+    font-size: 1.5em;
 }
 .jogadores input{
     padding: 5px;
@@ -109,11 +122,19 @@ body {
     cursor: pointer;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
-.jogadores button#md1,#md3,#md5{
+.jogadores button#md3,#md5{
     position: relative;
     top:30px;
-    left:30px;
     background: rgb(93, 185, 201);
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    transition: 0.5s all;
+}
+.jogadores button#md1{
+    position: relative;
+    top:30px;
+    background: rgb(59, 113, 122);
     border: none;
     border-radius: 10px;
     padding: 15px;
@@ -124,6 +145,12 @@ body {
     cursor: pointer;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
+
+#mensagem{
+    margin-top:40px;
+    color: red;
+    display: none;
+}
 .box {
   background: transparent;
   border: 0.1px solid #555;
@@ -133,10 +160,14 @@ body {
   color: black;
   transition: 0.5s all;
 }
+
 .box:hover{
+    position: relative;
     background: rgb(175, 114, 44);
     cursor: pointer;
-    box-shadow: 5px 5px 5px 5px rgba(0.5, 0.5, 0.5, 0.5);
+    top:-10px;
+    
+    box-shadow: rgba(0, 0, 0, 0.4) 5px 5px;
 }
 .botoes{
     position: absolute;
@@ -150,12 +181,14 @@ body {
     user-select: none;
     transition: 0.5s all;
 }
+
 .botoes #resetTabuleiro{
     background: rgb(175, 114, 44);
     border-radius:10px;
     font-size:1em;
     padding:15px;
     transition: 0.3s all;
+    
 }
 .botoes #resetTabuleiro:hover{
     background: rgb(45, 117, 45);
