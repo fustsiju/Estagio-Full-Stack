@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo da Velha</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js" defer></script>
@@ -19,13 +19,16 @@
 
     <div class="jogadores">
         <form method="post">
-            <h2>Nome do jogador X: </h2><input id="jogador1" type="text" maxlength="8">
-            <h2>Nome do jogador O: </h2><input  id="jogador2" type="text" maxlength="8">
+            <label>Nome do jogador X: </label>
+            <input id="jogador1" type="text" maxlength="7">
+            <label>Nome do jogador O: </label>
+            <input id="jogador2" type="text" maxlength="7">
             <div class="opcoes">
-            <button id="md1" type="button">MD1</button>
-            <button id="md3" type="button">MD3</button>
-            <button id="md5" type="button">MD5</button>
+                <button id="md1" type="button">MD1</button>
+                <button id="md3" type="button">MD3</button>
+                <button id="md5" type="button">MD5</button>
             </div>
+            <h2 id="mensagem">Nomes devem ser diferentes!!!</h2>
             <button id="comecar" onclick="jogadores()" type="button"> Iniciar </button>
         </form>
     </div>
@@ -33,14 +36,14 @@
 
     </div>
     <div class="botoes">
-    <button id="resetTabuleiro">
-        <h2>REINICIAR TABULEIRO</h2>
-    </button>
-    <button id="resetJogo">
-        <h2 id="repetir">REINICIAR JOGO</h2>
-    </button>
-</div>
-
+        <button id="resetTabuleiro">
+            <h2>REINICIAR TABULEIRO</h2>
+        </button>
+        <button id="resetJogo">
+            <h2 id="repetir">REINICIAR JOGO</h2>
+        </button>
+    </div>
+    
 </body>
 
 </html>
