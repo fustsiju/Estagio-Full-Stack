@@ -1,0 +1,74 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: grey ;
+    margin-top:100px;
+    user-select: none;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(6, 150px);
+    gap: 10px;
+    background: #191919;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 1s;
+}
+
+.carta {
+    width: 150px;
+    height: 150px;
+    background-color: #949278;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 10px;
+    position: relative;
+    color:black;
+    transition: all 0.2s;
+    font-weight:bold;
+    pointer-events:none;
+}
+
+.inf{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 500px;
+    font-weight: bold;    
+    margin-top:25px; 
+    transition: all 0.2s;
+}
+.inf #cond{
+    text-align: center;
+}
+.inf h2{
+    margin:20px;
+}
+
+.reset{
+    position: absolute;
+    bottom: 50px;
+    background: #13524e;
+    height: 100px;
+    width: 200px;
+    border: none;
+    border-radius: 10px;
+    user-select: none;
+}
+.reset:hover{
+    background: white;
+    cursor:pointer;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
