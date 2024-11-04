@@ -194,6 +194,9 @@ function jogadores() {
       : localStorage.getItem(jogador2);
   }
   if (jogador1 === jogador2) {
+    $(".box, #resetJogo, #resetTabuleiro").css({
+      "display": "none"
+    });
     $("#mensagem").css("display", "flex");
     $("#jogador1").val("");
     $("#jogador2").val("");
@@ -201,6 +204,9 @@ function jogadores() {
     jogador2 = "";
   }
   if (jogador1 !== "" && jogador2 !== "") {
+    $(".box, #resetJogo, #resetTabuleiro").css({
+      "display": "flex"
+    });
     $(".jogadores").css("display", "none");
     $(".nomeJogador1").text(jogador1);
     $(".nomeJogador2").text(jogador2);
