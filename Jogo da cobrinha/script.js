@@ -14,8 +14,8 @@ let widTam = 90;
 let rabo = [{}];
 let tempoProximaTecla = 200;
 let tempo = 0;
-let ultimaTecla = 0; 
-const intervaloMinimo = 70; 
+let ultimaTecla = 0;
+const intervaloMinimo = 70;
 
 function menu() {
   $(".container").append(
@@ -42,7 +42,6 @@ function menu() {
       geraComida();
       attPosicao = setInterval(atualizarPosicao, 100);
       attComida = setInterval(comeuComida, 1);
-
     }
   });
 }
@@ -65,7 +64,7 @@ function movimentacao() {
         direcao = "cima";
         anguloAtual = -90;
       }
-    
+
       $("#cobrinha").css({
         transform: `rotate(${anguloAtual}deg)`,
       });
@@ -73,8 +72,6 @@ function movimentacao() {
     }
   });
 }
-
-
 
 function reiniciar() {
   clearInterval(attComida);
@@ -126,15 +123,14 @@ function atualizarPosicao() {
   });
 
   if (
-    novaPosicao.x >= 600 || 
-    novaPosicao.y >= 600 || 
-    novaPosicao.x < 0 ||    
-    novaPosicao.y < 0       
+    novaPosicao.x >= 600 ||
+    novaPosicao.y >= 600 ||
+    novaPosicao.x < 0 ||
+    novaPosicao.y < 0
   ) {
     reiniciar();
   }
 }
-
 
 function inteiroRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -151,7 +147,6 @@ function geraComida() {
   });
 }
 
-
 function comeuComida() {
   let cabeca = cobra[0];
   if (
@@ -164,6 +159,11 @@ function comeuComida() {
     $(".comida").remove();
     geraComida();
     $("#pontComida").text(pontuacaoComida);
+  } else if (
+    (segmento.x === posicaoComidaX && segmento.y === posicaoComidaY) ||
+    (segmento.y === posicaoComidaX && segmento.x === posicaoComidaY)
+  ) {
+    geraComida();
   }
 }
 
