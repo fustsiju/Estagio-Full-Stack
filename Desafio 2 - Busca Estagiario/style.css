@@ -6,10 +6,10 @@ body{
     user-select: none;
 }
 
-.containe{
+.container{
     position: relative;
-    min-width: 60vw;
-    min-height: 45vh;
+    width: 1120px;
+    min-height: 30vh;
     display: grid;
     flex-wrap: wrap;
     padding-left: 15px;
@@ -17,9 +17,10 @@ body{
     border: 1px solid black;
     padding-bottom: 20px;
 }
+
 .busca{
     position: relative;
-    max-height: 30vh;
+    height: 20vh;
 }
 .formulario{
     width: 55vw;
@@ -33,17 +34,24 @@ body{
 .formulario input,select:focus{
     outline: none;
 }
+.formulario #nomeEstagiario{
+    width: 250px;
+}
 .formulario #cidadeEstagiario{
-    width: 300px;
-    min-width: 100px;
-    max-width: 300px;
+    width: 400px;
+}
+.formulario #dataIni{
+    width: 100px;
+}
+.formulario #dataFim{
+    width: 100px;
 }
 
 .botoes{
     position: relative;
     display: flex;
     float: inline-end;
-    margin-right: 5em;
+    margin-right: 2em;
 }
 button{
     position: relative;
@@ -84,18 +92,18 @@ input,select::-webkit-outer-spin-button, input,select::-webkit-inner-spin-button
     -webkit-appearance: none;
 }
 
-.info{
-    position: relative;
-    display: grid;
-    grid-template-rows: 40px;
-    grid-template-columns: 140px 140px 140px 140px 140px 140px 140px 140px;
-    grid-row: auto;
-    text-align: center;
+.baseColunas{
     border-bottom: 1px solid #aaa;
-    margin-right: 15px;
-    font-size: 1em;
     margin-bottom: 20px;
 }
+
+.baseColunas th{
+    position: relative;
+    height: 40px;
+    width: 135px;
+    border: 0px;
+}
+
 #pesquisa{
     color:  #1565C0;
     border-bottom: 2px solid #1565C0;
@@ -106,49 +114,26 @@ input,select::-webkit-outer-spin-button, input,select::-webkit-inner-spin-button
     padding-right: 10px;
 }
 
-#tab{
-    display: grid;
-    grid-template-rows: 40px;
-    grid-template-columns: 140px 140px 140px 140px 140px 140px 140px 140px;
-    grid-row: auto;
-    text-align: center;
-}
-p#encontrado{
+table{
     position: relative;
-    top:10px;
+}
+
+thead{
+width: 140px;
+height: 40px;
+text-align: center;
+}
+tbody{
     text-align: center;
-}
-.tabelaResult {
-    overflow-x: auto;
-    width: 100%;
+    height: 100px;
 }
 
-.tabelaResult table {
-    max-width: 900px;
-    border-collapse: collapse;
-    font-family: arial;
-    text-align: center;
-}
-
-.tabelaResult table td,th {
-    position: relative;
-    padding: 5px;
-    max-width: 140px;
-    border: solid 1px black;
-    font-size: 15px;
-}
-
-.tabelaResult table th {
-    background-color: rgb(230,230,230);
-}
-
-.tabelaResult table td {
-    padding-left: 6px;
-}
 nav{
     display: flex;
     justify-content: flex-end;
+    margin-top: 20px;
     border-top: 0.1px solid grey;
+    vertical-align: auto;
 }
 .navg #paginas{
     display: flex;
@@ -156,21 +141,24 @@ nav{
 }
 .navegacao{
     display: flex;
+    vertical-align: auto;
     list-style: none;
-    margin: 20px;
-    padding: 0px;
+    margin-top: 20px;
+    height: 20px;
 }
 .navegacao ul{
     display: block;
     justify-content: center;
 }
 .navegacao li{
-    margin-right: 0px;
+    height: 20px;
  
 }
 .navegacao #add{
-    width: 50px;
+    margin-top: 2px;
+    width: 10px;
     height: 20px;
+    text-align:justify;
 }
 .navegacao #anterior:hover, #proximo:hover {
     background: #e6e6e6;
@@ -180,4 +168,3 @@ nav{
     display: none;
     text-align: center;
 }
-
