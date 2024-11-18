@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="containe">
+    <div class="container">
         <div class="busca">
             <h1>Busca Estagiários</h1>
             <div class="formulario">
@@ -29,42 +29,41 @@
                 <input data-name="entrada" placeholder="Data final" id="dataFim" type="text"></label>
             </form>
             <div class="botoes">
-                <button id="limpa">LIMPAR</button>
+                <button id="limpa" type="reset">LIMPAR</button>
                 <button id="busca">PESQUISAR</button>
             </div>
         </div>
         </div>
-        <p id="pesquisa">RESULTADO DA PESQUISA</p>
-        <div class="info">
-            <p>Código</p>
-            <p>Nome</p>
-            <p>Cidade</p>
-            <p>Data de Início</p>
-            <p>Data de fim</p>
-            <p>Cargo</p>
-            <p>Responsável</p>
-            <p>Efetivo</p>
+        <table>
+            <thead>
+              <tr>
+                  <th>Código</th>
+                  <th>Nome</th>
+                  <th>Cidade</th>
+                  <th>Data de Início</th>
+                  <th>Data de Fim</th>
+                  <th>Cargo</th>
+                  <th>Responsável</th>
+                  <th>Efetivo</th>
+              </tr>
+            </thead>
 
-        </div>
-        <div class="tabelaResult">
-            <table id="tab">
-                <p id="encontrado">Nenhum Estagiário Encontrado.</p>
-            </table>
-        </div>
+            <tbody>
+            </tbody>
+          </table>
 
         <nav class="navg">
             <ul class="navegacao">
               <li>
                 <i class="material-icons" id="anterior">chevron_left</i>
               </li>
-              
-              
               <li>
                 <i class="material-icons" id="proximo">chevron_right</i>
               </li>
               <div id="add"></div>
             </ul>
           </nav>
+         
     </div>
 </body>
 
