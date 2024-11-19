@@ -1,170 +1,176 @@
-body{
-    background: #FAFAFA;
-    font-family: 'Courier New', Courier, monospace;
-    display: flex;
-    justify-content: center;
-    user-select: none;
+body {
+  background: #fafafa;
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  justify-content: center;
+  user-select: none;
 }
 
-.container{
-    position: relative;
-    width: 1120px;
-    min-height: 30vh;
-    display: grid;
-    flex-wrap: wrap;
-    padding-left: 15px;
-    justify-content: left;
-    border: 1px solid black;
-    padding-bottom: 20px;
+.container {
+  position: relative;
+  width: 1120px;
+  min-height: 30vh;
+  display: grid;
+  flex-wrap: wrap;
+  padding-left: 15px;
+  justify-content: left;
+  border: 1px solid black;
+  padding-bottom: 20px;
 }
 
-.busca{
-    position: relative;
-    height: 20vh;
+.busca {
+  position: relative;
+  height: 20vh;
 }
-.formulario{
-    width: 55vw;
-    display: inline;
+.formulario {
+  width: 55vw;
+  display: inline;
 }
-.formulario input, select{
-    margin-right: 50px;
-    border-bottom: 1.5px solid #aaa;
-    padding: 5px;
+.formulario input,
+select {
+  margin-right: 50px;
+  border-bottom: 1.5px solid #aaa;
+  padding: 5px;
 }
-.formulario input,select:focus{
-    outline: none;
+.formulario input,
+select:focus {
+  outline: none;
 }
-.formulario #nomeEstagiario{
-    width: 250px;
+.formulario #nomeEstagiario {
+  width: 250px;
 }
-.formulario #cidadeEstagiario{
-    width: 400px;
+.formulario #cidadeEstagiario {
+  width: 400px;
 }
-.formulario #dataIni{
-    width: 100px;
+.formulario #dataIni {
+  width: 100px;
 }
-.formulario #dataFim{
-    width: 100px;
-}
-
-.botoes{
-    position: relative;
-    display: flex;
-    float: inline-end;
-    margin-right: 2em;
-}
-button{
-    position: relative;
-    margin: 1px;
-    margin-top: 25px;
-    padding: 10px;
-    font-size: 0.8em;
-    border-radius: 1px none;
-}
-#busca{
-    color: white;
-    background: #1565C0;
-    border: none;
-    border-radius: 3px;
-}
-#busca:hover{
-    background: #193657;
-    cursor: pointer;
-}
-#limpa{
-    border: none;
-    border-radius: 3px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-#limpa:hover{
-   cursor: pointer;
-   background: rgb(255, 44, 44);
-   color: white;
-}
-input, select{
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background: none;
+.formulario #dataFim {
+  width: 100px;
 }
 
-input,select::-webkit-outer-spin-button, input,select::-webkit-inner-spin-button{
-    -webkit-appearance: none;
+.botoes {
+  position: relative;
+  display: flex;
+  float: inline-end;
+  margin-right: 2em;
+}
+button {
+  position: relative;
+  margin: 1px;
+  margin-top: 25px;
+  padding: 10px;
+  font-size: 0.8em;
+  border-radius: 1px none;
+}
+#busca {
+  color: white;
+  background: #1565c0;
+  border: none;
+  border-radius: 3px;
+}
+#busca:hover {
+  background: #193657;
+  cursor: pointer;
+}
+#limpa {
+  border: none;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+#limpa:hover {
+  cursor: pointer;
+  background: rgb(255, 44, 44);
+  color: white;
+}
+input,
+select {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: none;
 }
 
-.baseColunas{
-    border-bottom: 1px solid #aaa;
-    margin-bottom: 20px;
+input,
+select::-webkit-outer-spin-button,
+input,
+select::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
-.baseColunas th{
-    position: relative;
-    height: 40px;
-    width: 135px;
-    border: 0px;
+.baseColunas {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 20px;
 }
 
-#pesquisa{
-    color:  #1565C0;
-    border-bottom: 2px solid #1565C0;
-    height: 40px;
-    width: 250px;
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
+.baseColunas th {
+  position: relative;
+  height: 40px;
+  width: 135px;
+  border: 0px;
 }
 
-table{
-    position: relative;
+#pesquisa {
+  color: #1565c0;
+  border-bottom: 2px solid #1565c0;
+  height: 40px;
+  width: 250px;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-thead{
-width: 140px;
-height: 40px;
-text-align: center;
-}
-tbody{
-    text-align: center;
-    height: 100px;
+table {
+  position: relative;
 }
 
-nav{
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-    border-top: 0.1px solid grey;
-    vertical-align: auto;
+thead {
+  width: 140px;
+  height: 40px;
+  text-align: center;
 }
-.navg #paginas{
-    display: flex;
-    color: #1565C0;
+tbody {
+  text-align: center;
+  height: 100px;
 }
-.navegacao{
-    display: flex;
-    vertical-align: auto;
-    list-style: none;
-    margin-top: 20px;
-    height: 20px;
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  border-top: 0.1px solid grey;
+  vertical-align: auto;
 }
-.navegacao ul{
-    display: block;
-    justify-content: center;
+.navg #paginas {
+  display: flex;
+  color: #1565c0;
 }
-.navegacao li{
-    height: 20px;
- 
+.navegacao {
+  display: flex;
+  vertical-align: auto;
+  list-style: none;
+  margin-top: 20px;
+  height: 20px;
 }
-.navegacao #add{
-    margin-top: 2px;
-    width: 10px;
-    height: 20px;
-    text-align:justify;
+.navegacao ul {
+  display: block;
+  justify-content: center;
 }
-.navegacao #anterior:hover, #proximo:hover {
-    background: #e6e6e6;
-    cursor: pointer;
+.navegacao li {
+  height: 20px;
 }
-.navg{
-    display: none;
-    text-align: center;
+.navegacao #add {
+  margin-top: 2px;
+  width: 10px;
+  height: 20px;
+  text-align: justify;
+}
+.navegacao #anterior:hover,
+#proximo:hover {
+  background: #e6e6e6;
+  cursor: pointer;
+}
+.navg {
+  display: none;
+  text-align: center;
 }
