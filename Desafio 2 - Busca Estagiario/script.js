@@ -2,6 +2,8 @@ import { dados } from "./dados.js";
 
 let nome;
 let cidade;
+let dataini;
+let datafim;
 let inicial;
 let final;
 let quant = 0;
@@ -95,8 +97,8 @@ $("#limpa").on("click", function () {
 function buscaEstagiario() {
   nome = $("#nomeEstagiario").val();
   cidade = $("#cidadeEstagiario").val();
-  dataini = $("#dataIni").val();
-  datafim = $("#dataFim").val();
+  inicial = $("#dataIni").val();
+  final = $("#dataFim").val();
   $("#proximo").css({ "pointer-events": "all" });
 }
 
