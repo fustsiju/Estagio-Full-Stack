@@ -9,7 +9,7 @@ body {
 .container {
   position: relative;
   width: 1120px;
-  min-height: 30vh;
+  min-height: 20vh;
   display: grid;
   flex-wrap: wrap;
   padding-left: 15px;
@@ -122,7 +122,9 @@ select::-webkit-inner-spin-button {
 
 table {
   position: relative;
+  max-height: 30vh;
 }
+
 
 thead {
   width: 140px;
@@ -131,7 +133,7 @@ thead {
 }
 tbody {
   text-align: center;
-  height: 100px;
+  height: 10px;
 }
 
 nav {
