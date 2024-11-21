@@ -5,11 +5,10 @@ body {
   justify-content: center;
   user-select: none;
 }
-
 .container {
   position: relative;
   width: 1120px;
-  min-height: 20vh;
+  min-height: 35vh;
   display: grid;
   flex-wrap: wrap;
   padding-left: 15px;
@@ -17,7 +16,6 @@ body {
   border: 1px solid black;
   padding-bottom: 20px;
 }
-
 .busca {
   position: relative;
   height: 20vh;
@@ -48,13 +46,19 @@ select:focus {
 .formulario #dataFim {
   width: 100px;
 }
-
-.botoes {
+.botaoLimpar {
   position: relative;
   display: flex;
   float: inline-end;
   margin-right: 2em;
 }
+.botaoBuscar {
+  position: relative;
+  display: flex;
+  float: inline-end;
+  margin-right: 1em;
+}
+
 button {
   position: relative;
   margin: 1px;
@@ -68,6 +72,7 @@ button {
   background: #1565c0;
   border: none;
   border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 #busca:hover {
   background: #193657;
@@ -90,26 +95,22 @@ select {
   border-right: none;
   background: none;
 }
-
 input,
 select::-webkit-outer-spin-button,
 input,
 select::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
-
 .baseColunas {
   border-bottom: 1px solid #aaa;
   margin-bottom: 20px;
 }
-
 .baseColunas th {
   position: relative;
   height: 40px;
   width: 135px;
   border: 0px;
 }
-
 #pesquisa {
   color: #1565c0;
   border-bottom: 2px solid #1565c0;
@@ -119,13 +120,10 @@ select::-webkit-inner-spin-button {
   padding-left: 10px;
   padding-right: 10px;
 }
-
 table {
   position: relative;
   max-height: 30vh;
 }
-
-
 thead {
   width: 140px;
   height: 40px;
@@ -135,7 +133,6 @@ tbody {
   text-align: center;
   height: 10px;
 }
-
 nav {
   display: flex;
   justify-content: flex-end;
