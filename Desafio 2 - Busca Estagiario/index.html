@@ -1,69 +1,85 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script src="script.js" type="module" defer></script>  
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="script.js" type="module" defer></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <title>Busca Estagiários</title>
-</head>
-<body>
-  
+  </head>
+
+  <body>
     <div class="container">
-        <div class="busca">
-            <h1>Busca Estagiários</h1>
-            <div class="formulario">
-            <form method="post" id="formulario">
-                <input data-name="entrada" placeholder="Nome" id="nomeEstagiario" type="text"></label>
-                <select id="cidadeEstagiario">
-                  <option value=""></option>
-                  <option value="Passos">Passos</option>
-                  <option value="Franca">Franca</option>
-                  <option value="João Pessoa">João Pessoa</option>
-                  <option value="Ingá">Ingá</option></select>
-                <input data-name="entrada" placeholder="Data inicial" id="dataIni" type="text"></label> 
-                <input data-name="entrada" placeholder="Data final" id="dataFim" type="text"></label>
-            </form>
-            <div class="botoes">
-                <button id="limpa" type="reset">LIMPAR</button>
-                <button id="busca">PESQUISAR</button>
+      <div class="busca">
+        <h1>Busca Estagiários</h1>
+        <div class="formulario">
+          <form id="formulario">
+            <input
+              data-name="entrada"
+              placeholder="Nome"
+              id="nomeEstagiario"
+              type="text"
+            />
+            <select id="cidadeEstagiario">
+              <option value=""></option>
+              <option value="Passos">Passos</option>
+              <option value="Franca">Franca</option>
+              <option value="João Pessoa">João Pessoa</option>
+              <option value="Ingá">Ingá</option>
+            </select>
+            <input
+              placeholder="Data inicial"
+              id="dataIni"
+              type="text"
+            />
+            <input
+              placeholder="Data final"
+              id="dataFim"
+              type="text"
+            />
+            <div class="botaoLimpar">
+              <button id="limpa" type="reset">LIMPAR</button>
             </div>
+          </form>
+          <div class="botaoBuscar">
+          <button id="busca">PESQUISAR</button>
         </div>
-        </div>
+      </div>
+      </div>
 
-        <table>
-            <thead>
-              <tr>
-                  <th>Código</th>
-                  <th>Nome</th>
-                  <th>Cidade</th>
-                  <th>Data de Início</th>
-                  <th>Data de Fim</th>
-                  <th>Cargo</th>
-                  <th>Responsável</th>
-                  <th>Efetivo</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Cidade</th>
+            <th>Data de Início</th>
+            <th>Data de Fim</th>
+            <th>Cargo</th>
+            <th>Responsável</th>
+            <th>Efetivo</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
 
-        <nav class="navg">
-            <ul class="navegacao">
-              <li>
-                <i class="material-icons" id="anterior">chevron_left</i>
-              </li>
-              <li>
-                <i class="material-icons" id="proximo">chevron_right</i>
-              </li>
-              <div id="add"></div>
-            </ul>
-          </nav>
+      <nav class="navg">
+        <ul class="navegacao">
+          <li>
+            <i class="material-icons" id="anterior">chevron_left</i>
+          </li>
+          <li>
+            <i class="material-icons" id="proximo">chevron_right</i>
+          </li>
+          <div id="add"></div>
+        </ul>
+      </nav>
     </div>
-
-</body>
+  </body>
 </html>
