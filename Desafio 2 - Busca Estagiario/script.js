@@ -2,14 +2,11 @@ import { dados } from "./dados.js";
 
 let nome;
 let cidade;
-let dataini;
-let datafim;
 let inicial;
 let final;
 let quant = 0;
 let resultado = [];
 let pag = [{}];
-let p;
 let minimo = 1;
 let maximo = 10;
 let naoEncontrado = `<tr><td colspan="8" style="text-align: center;">Nenhum Estagiário Encontrado.</td></tr>`;
@@ -17,7 +14,7 @@ $("#dataIni").mask("00/00/0000");
 $("#dataFim").mask("00/00/0000");
 $("tbody").append(naoEncontrado);
 
-function converter() {
+function converterEntradas() {
   inicial = $("#dataIni").val().split("/").reverse().join("-");
   final = $("#dataFim").val().split("/").reverse().join("-");
 }
@@ -30,29 +27,26 @@ $("#busca").on("click", function () {
   $("#anterior").css("display", "none");
   $("#proximo").css("display", "flex");
   resultado = [];
-  converter();
-  separaPag(0, dados.length);
+  converterEntradas();
+  buscaEstagiario();
   trocaPag(minimo, maximo);
-  gera(minimo, maximo);
+  geraTabela(minimo, maximo);
   $("#add").text(minimo + "-" + maximo);
 });
 
-function separaPag(l, v) {
+function buscaEstagiario() {
   quant = 0;
-  limpaTab();
-  buscaEstagiario();
-  for (p = l; p < dados.length; p++) {
+  $("tbody").empty();
+  pegaValorInputs();
+  for (let p = 0; p < dados.length; p++) {
     pag[p] = dados[p];
-
     pag[p].DataInicio = pag[p].DataInicio.split("-").reverse().join("/");
     pag[p].DataFim = pag[p].DataFim.split("-").reverse().join("/");
-  }
-  for (p = l; p < v; p++) {
     if (
       (nome === "" || nome === pag[p].Nome) &&
       (cidade === "" || cidade === pag[p].Cidade) &&
-      (inicial === "" || inicial === pag[p].DataInicio) &&
-      (final === "" || final === pag[p].DataFim)
+      (inicial === "" || inicial === pag[p].DataInicio.split("-").reverse().join("/")) &&
+      (final === "" || final === pag[p].DataFim.split("-").reverse().join("/"))
     ) {
       quant++;
       resultado[quant] = pag[p];
@@ -60,12 +54,18 @@ function separaPag(l, v) {
   }
 }
 
-function gera(h, j) {
+function geraTabela(min, max) {
   quant = 0;
-  limpaTab();
-  buscaEstagiario();
-  for (let o = h; o < resultado.length; o++) {
-    if (o <= j) {
+  $("tbody").empty();
+  pegaValorInputs();
+
+  if (resultado.length === 0) {
+    $("tbody").append(naoEncontrado);
+    return;
+  }
+
+  for (let o = min; o < resultado.length; o++) {
+    if (o <= max) {
       $("tbody").append(`<tr><td >${resultado[o].Codigo}</td>
        <td >${resultado[o].Nome}</td>
        <td >${resultado[o].Cidade}</td>
@@ -81,29 +81,15 @@ function gera(h, j) {
   } else {
     $(".navg").css("display", "flex");
   }
-  if (resultado.length === 0) {
-    $("tbody").append(naoEncontrado);
-  }
+
 }
 
-$("#limpa").on("click", function () {
-  function limpaInputs() {
-    $("input[data-name='entrada']").val("");
-    $("select").val("");
-  }
-  limpaInputs();
-});
-
-function buscaEstagiario() {
+function pegaValorInputs() {
   nome = $("#nomeEstagiario").val();
   cidade = $("#cidadeEstagiario").val();
   inicial = $("#dataIni").val();
   final = $("#dataFim").val();
   $("#proximo").css({ "pointer-events": "all" });
-}
-
-function limpaTab() {
-  $("tbody").empty();
 }
 
 function trocaPag(minimo, maximo) {
@@ -114,18 +100,17 @@ function trocaPag(minimo, maximo) {
         $("#add").css("margin-left", "24px");
       }
       $("#anterior").css({ display: "flex" });
-      limpaTab();
+      $("tbody").empty();
       if (maximo === resultado.length) {
-        maximo = maximo;
         $("#add").text(minimo + 1 + "-" + maximo);
-        gera(minimo + 1, maximo);
+        geraTabela(minimo + 1, maximo);
       } else if (maximo < resultado.length) {
         maximo += 10;
         minimo = maximo - 10;
         $("#add").text(minimo + 1 + "-" + maximo);
-        gera(minimo + 1, maximo);
+        geraTabela(minimo + 1, maximo);
         if (maximo >= resultado.length) {
-          limpaTab();
+          $("tbody").empty();
           maximo = resultado.length - 1;
           if (minimo === maximo) {
             minimo = minimo - 10;
@@ -133,7 +118,7 @@ function trocaPag(minimo, maximo) {
             minimo = minimo;
           }
           $("#add").text(minimo + 1 + "-" + maximo);
-          gera(minimo + 1, maximo);
+          geraTabela(minimo + 1, maximo);
         }
       }
     });
@@ -146,24 +131,24 @@ function trocaPag(minimo, maximo) {
         $("#add").css("margin-left", "24px");
       }
       $("#add").css("margin-left", "0px");
-      limpaTab();
+      $("tbody").empty();
       $("#proximo").css("display", "flex");
       $("#add").css("width", "50px");
       if (minimo === 0 || minimo < 0) {
         minimo === 0;
         maximo === 10;
         $("#add").text(minimo + 1 + "-" + maximo);
-        gera(minimo + 1, maximo);
+        geraTabela(minimo + 1, maximo);
       } else if (maximo % 10 == 0) {
         minimo -= 10;
         maximo -= 10;
         $("#add").text(minimo + 1 + "-" + maximo);
-        gera(minimo + 1, maximo);
+        geraTabela(minimo + 1, maximo);
       } else {
         minimo = 0;
         maximo = 10;
         $("#add").text(minimo + 1 + "-" + maximo);
-        gera(minimo + 1, maximo);
+        geraTabela(minimo + 1, maximo);
       }
     });
   }
