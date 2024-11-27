@@ -50,7 +50,6 @@ $("#busca").on("click", function () {
   converterEntradas();
   buscaEstagiario();
   trocaPag();
-  console.log(paginas);
 });
 
 function numerosPaginacao() {
@@ -144,7 +143,6 @@ function trocaPag() {
       if (paginaAtual <= qtdPagina - 1) {
         paginaAtual++;
         geraTabela(paginaAtual);
-        console.log(paginaAtual);
         if (paginaAtual >= qtdPagina - 1) {
           $("#proximo").css({ "pointer-events": "none", color: "white" });
         }
@@ -165,7 +163,6 @@ function trocaPag() {
       if (paginaAtual >= 0) {
         paginaAtual--;
         geraTabela(paginaAtual);
-        console.log(paginaAtual);
         if (paginaAtual == 0) {
           $("#anterior").css({ "pointer-events": "none", color: "white" });
         }
