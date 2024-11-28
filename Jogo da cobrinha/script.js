@@ -1,11 +1,15 @@
-let cobra = [{ x: 150, y: 150 }];
+let cobra = [
+  { x: 150, y: 150 },
+  { x: 120, y: 150 }, 
+  { x: 90, y: 150 }, 
+];
 let posicaoX = 0;
 let posicaoY = 0;
 const velocidade = 30;
 let direcao = "direita";
 let anguloAtual = 0;
 let posicaoComidaX = 0;
-let posicaoComidaY = 0;
+let posicaoComidaY = 0; 
 let pontuacaoComida = 0;
 let emJogo = 0;
 let attPosicao;
@@ -26,6 +30,7 @@ function menu() {
   $(".cobra").remove();
   $("#cobrinha").remove();
   document.addEventListener("keydown", function (event) {
+    
     if (event.keyCode == 32 && emJogo === 0) {
       $(".container").css({
         display: "grid",
@@ -38,6 +43,7 @@ function menu() {
       $("img").remove();
       $("h1").remove();
       emJogo = 1;
+      
       movimentacao();
       geraComida();
       attPosicao = setInterval(atualizarPosicao, 100);
