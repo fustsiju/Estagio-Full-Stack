@@ -140,10 +140,10 @@ function trocaPag() {
     .on("click", function () {
       paginacaoInicial++;
       paginacaoFinal++;
-      if (paginaAtual <= qtdPagina - 1) {
+      if (paginaAtual <= qtdPagina) {
         paginaAtual++;
         geraTabela(paginaAtual);
-        if (paginaAtual >= qtdPagina - 1) {
+        if (paginaAtual >= qtdPagina) {
           $("#proximo").css({ "pointer-events": "none", color: "white" });
         }
       }
