@@ -68,8 +68,8 @@ function buscaEstagiario() {
     pag[p].DataFim = pag[p].DataFim.split("-").reverse().join("/");
     if (
       (nome === "" ||
-        nome === pag[p].Nome.toLowerCase() ||
-        pag[p].Nome.toLowerCase().includes(nome)) &&
+        nome.trim() === pag[p].Nome.trim().toLowerCase() ||
+        pag[p].Nome.trim().toLowerCase().includes(nome)) &&
       (cidade === "" || cidade === pag[p].Cidade) &&
       (inicial === "" ||
         inicial === pag[p].DataInicio ||
@@ -94,6 +94,7 @@ function buscaEstagiario() {
   if (quant <= 10) {
     $(".navg").css("display", "none");
   }
+  
 }
 
 function geraTabela(lista) {
@@ -140,12 +141,12 @@ function trocaPag() {
     .on("click", function () {
       paginacaoInicial++;
       paginacaoFinal++;
-      if (paginaAtual <= qtdPagina) {
+      if (paginaAtual < qtdPagina) {
         paginaAtual++;
         geraTabela(paginaAtual);
-        if (paginaAtual >= qtdPagina) {
+        if (paginaAtual === qtdPagina && paginas[qtdPagina].length <= 9) {
           $("#proximo").css({ "pointer-events": "none", color: "white" });
-        }
+        } 
       }
       $("#anterior").css({
         display: "flex",
@@ -153,6 +154,9 @@ function trocaPag() {
         "pointer-events": "all",
       });
       numerosPaginacao();
+      if(paginaAtual === qtdPagina -1 && paginas[qtdPagina].length === 0){
+        $("#proximo").css({ "pointer-events": "none", color: "white" });
+      }
     });
 
   $("#anterior")
