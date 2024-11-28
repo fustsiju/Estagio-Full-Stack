@@ -86,7 +86,11 @@ function reiniciar() {
   posicaoX = 150;
   posicaoY = 150;
   direcao = "direita";
-  cobra = [{ x: 30, y: 30 }];
+  cobra = [
+    { x: 150, y: 150 },
+    { x: 120, y: 150 }, 
+    { x: 90, y: 150 }, 
+  ];
   pontuacaoComida = 0;
   menu();
 }
@@ -143,8 +147,16 @@ function inteiroRandom(min, max) {
 }
 
 function geraComida() {
-  posicaoComidaX = inteiroRandom(1, 19) * 30;
-  posicaoComidaY = inteiroRandom(1, 19) * 30;
+  let comidaValida = false;
+  while (!comidaValida) {
+
+    posicaoComidaX = inteiroRandom(1, 19) * 30;
+    posicaoComidaY = inteiroRandom(1, 19) * 30;
+
+    comidaValida = !cobra.some(
+      (segmento) => segmento.x === posicaoComidaX && segmento.y === posicaoComidaY
+    );
+  }
 
   $(".container").append("<div class='comida'></div>");
   $(".comida").css({
@@ -152,6 +164,7 @@ function geraComida() {
     left: `${posicaoComidaX}px`,
   });
 }
+
 
 function comeuComida() {
   let cabeca = cobra[0];
@@ -167,7 +180,7 @@ function comeuComida() {
     $("#pontComida").text(pontuacaoComida);
   } else if (
     (segmento.x === posicaoComidaX && segmento.y === posicaoComidaY) ||
-    (segmento.y === posicaoComidaX && segmento.x === posicaoComidaY)
+    (segmento.y === posicaoComidaX && segmento.x === posicaoComidaY) 
   ) {
     geraComida();
   }
