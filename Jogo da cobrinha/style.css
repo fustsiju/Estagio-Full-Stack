@@ -1,95 +1,156 @@
-html{
-    overflow: hidden
+html {
+  overflow: hidden;
 }
-#titulo{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    color:rgb(0, 0, 0);
-    font-size: 4em;
+#titulo {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 4em;
 }
-body{
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(242, 245, 212);
-    font-family: "Press Start 2P", system-ui;
-    user-select: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(242, 245, 212);
+  font-family: "Press Start 2P", system-ui;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
-.container{
-    
-    width: 600px;
-    height: 600px;
-    background: rgb(245, 244, 177);
-    border-radius: 10px;
-    border:30px solid rgb(99, 136, 105);
-    -webkit-filter: drop-shadow(5px 5px 5px #222);  filter: drop-shadow(15px 15px 5px #222);
+.container {
+  width: 600px;
+  height: 600px;
+  background: rgb(245, 244, 177);
+  border-radius: 10px;
+  border: 30px solid rgb(99, 136, 105);
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(15px 15px 5px #222);
 }
-img{
-    position: relative;
-    left:9em;
-    top:40px;
-    animation:balanca 6s linear infinite;
+img {
+  position: relative;
+  left: 9em;
+  top: 40px;
+  animation: balanca 6s linear infinite;
 }
 @keyframes balanca {
-    0%{transform: rotateY(0deg);}
-    25%{transform: rotateY(90deg);}
-    50%{transform: rotateY(180deg);}
-    75%{transform: rotateY(90deg);}
-    100%{transform: rotateY(0deg);}
+  0% {
+    transform: rotateY(0deg);
+  }
+  25% {
+    transform: rotateY(90deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  75% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
 }
-.container h1{
+.container h1 {
+  position: absolute;
+  top: 60%;
+  transform: translateY(50%);
+  text-align: center;
+  letter-spacing: 3px;
+  color: rgb(99, 136, 105);
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 1);
+}
+.container h2 {
     position: absolute;
-    top:55%;
+    top: 67%;
     transform: translateY(50%);
     text-align: center;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     color: rgb(99, 136, 105);
-    text-shadow: 4px 4px 2px rgba(0,0,0,1);
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, 1);
+  }
+.cabeca {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: rgb(0, 255, 76);
 }
-.cabeca{
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background: rgb(0, 255, 76);
+.cobra {
+  position: absolute;
+  height: 30px;
+  transition: 0.05s all;
 }
-.cobra{
-    position: absolute;
-    height: 30px;
-    transition: 0.05s all;
+.rabo {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: rgb(7, 39, 14);
 }
-.rabo{
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background: rgb(7, 39, 14);
+.comida {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  background: transparent center/cover url("/img/maca.png") no-repeat;
 }
-.comida{ 
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    left:0px;
-    top:0px;
-    background: rgb(139, 22, 22);
+#obstaculo-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  border-radius: 5px;
+  background: rgb(196, 104, 0) center/cover url("/img/muro.png") no-repeat;
 }
-.pontuacao{
-    position: absolute;
-    top:-100px;
-    right:1em;
-    margin-bottom: 5px;
-    width: 100px;
-    height: 30px;
-    border-radius: 10px;
-    background: rgb(0, 0, 0);
-    border: 2px solid chartreuse;
-    padding: 10px;
-    text-align: center;
+#obstaculo-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  border-radius: 5px;
+  background: rgb(196, 104, 0) center/cover url("/img/muro.png") no-repeat;
 }
-#pontComida{
-    font-size: 2em;
-    font-weight: bolder;
-    color: chartreuse;
+#obstaculo-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  border-radius: 5px;
+  background: rgb(196, 104, 0) center/cover url("/img/muro.png") no-repeat;
+}
+.pontuacao {
+  position: absolute;
+  top: -100px;
+  right: 1em;
+  margin-bottom: 5px;
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  background: rgb(0, 0, 0);
+  border: 2px solid chartreuse;
+  padding: 10px;
+  text-align: center;
+}
+#pontComida {
+  font-size: 2em;
+  font-weight: bolder;
+  color: chartreuse;
+}
+.vitoria{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 15%;
+  width: 200px;
+  height: 75px;
+  border-radius: 20px;
+  background: rgb(99, 136, 105);
+  text-align: center;
+  align-content: center;
+}
+#venceu {
+  justify-self: center;
 }
