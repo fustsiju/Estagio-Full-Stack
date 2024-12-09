@@ -92,7 +92,7 @@ img {
   height: 30px;
   left: 0px;
   top: 0px;
-  background: transparent center/cover url("/img/maca.png") no-repeat;
+  background: transparent center/cover url("./img/maca.png") no-repeat;
 }
 #obstaculo-0 {
   position: absolute;
@@ -101,7 +101,7 @@ img {
   left: 0px;
   top: 0px;
   border-radius: 5px;
-  background: rgb(196, 104, 0) center/cover url("/img/muro.png") no-repeat;
+  background: rgb(196, 104, 0) center/cover url("./img/muro.png") no-repeat;
 }
 #obstaculo-1 {
   position: absolute;
@@ -110,7 +110,7 @@ img {
   left: 0px;
   top: 0px;
   border-radius: 5px;
-  background: rgb(196, 104, 0) center/cover url("/img/muro.png") no-repeat;
+  background: rgb(196, 104, 0) center/cover url("./img/muro.png") no-repeat;
 }
 #obstaculo-2 {
   position: absolute;
@@ -119,7 +119,7 @@ img {
   left: 0px;
   top: 0px;
   border-radius: 5px;
-  background: rgb(196, 104, 0) center/cover url("/img/muro.png") no-repeat;
+  background: rgb(196, 104, 0) center/cover url("./img/muro.png") no-repeat;
 }
 .pontuacao {
   position: absolute;
