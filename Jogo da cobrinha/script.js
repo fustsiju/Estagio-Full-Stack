@@ -5,7 +5,7 @@ let cobra = [
 ];
 let posicaoX = 0;
 let posicaoY = 0;
-const velocidade = 30;
+const velocidadeBase = 30;
 let direcao = "direita";
 let anguloAtual = 0;
 let posicaoComidaX = 0;
@@ -18,7 +18,7 @@ let widTam = 90;
 let ultimaTecla = 0;
 const intervaloMinimo = 70;
 let obstaculo = [];
-let aumentoVelocidade = 100;
+let velocidade = 100;
 let maximoPontuacao = 25;
 
 function menu() {
@@ -29,7 +29,7 @@ function menu() {
   );
 
   $("#pontComida, .comida, .cobra, #cobrinha, .obstaculo").remove();
-
+ 
   $(document).on("keydown", function (event) {
     if (event.keyCode == 32 && emJogo === 0) {
       $(".vitoria, h2").remove();
@@ -48,8 +48,8 @@ function menu() {
       geraObstaculo(3);
       geraComida();
 
-      attPosicao = setInterval(atualizarPosicao, aumentoVelocidade);
-      attVerificacoes = setInterval(verificarJogo, aumentoVelocidade);
+      attPosicao = setInterval(atualizarPosicao, velocidade);
+      attVerificacoes = setInterval(verificarJogo, velocidade);
     }
   });
 }
@@ -57,46 +57,38 @@ function menu() {
 function movimentacao() {
   $(document).on("keydown", function (event) {
     let tempoAtual = new Date().getTime();
-
-    if (tempoAtual - ultimaTecla > intervaloMinimo) {
-      if (event.key === "ArrowRight" && direcao !== "esquerda" && emJogo == 1) {
-        direcao = "direita";
-        anguloAtual = 0;
-      } else if (
-        event.key === "ArrowDown" &&
-        direcao !== "cima" &&
-        emJogo == 1
-      ) {
-        direcao = "baixo";
-        anguloAtual = 90;
-      } else if (
-        event.key === "ArrowLeft" &&
-        direcao !== "direita" &&
-        emJogo == 1
-      ) {
-        direcao = "esquerda";
-        anguloAtual = 180;
-      } else if (
-        event.key === "ArrowUp" &&
-        direcao !== "baixo" &&
-        emJogo == 1
-      ) {
-        direcao = "cima";
-        anguloAtual = -90;
+    if (emJogo === 1) {
+      if (tempoAtual - ultimaTecla > intervaloMinimo) {
+        if (
+          event.key === "ArrowRight" &&
+          direcao !== "esquerda"
+        ) {
+          direcao = "direita";
+          anguloAtual = 0;
+        } else if (event.key === "ArrowDown" && direcao !== "cima") {
+          direcao = "baixo";
+          anguloAtual = 90;
+        } else if (event.key === "ArrowLeft" && direcao !== "direita") {
+          direcao = "esquerda";
+          anguloAtual = 180;
+        } else if (event.key === "ArrowUp" && direcao !== "baixo") {
+          direcao = "cima";
+          anguloAtual = -90;
+        }
       }
 
       $("#cobrinha").css({
         transform: `rotate(${anguloAtual}deg)`,
       });
       ultimaTecla = tempoAtual;
-    }
+    } 
   });
 }
 
 function reiniciar() {
   clearInterval(attPosicao);
   clearInterval(attVerificacoes);
-  aumentoVelocidade = 100;
+  velocidade = 100;
   emJogo = 0;
   posicaoX = 150;
   posicaoY = 150;
@@ -118,16 +110,16 @@ function atualizarPosicao() {
 
   switch (direcao) {
     case "direita":
-      novaPosicao.x += velocidade;
+      novaPosicao.x += velocidadeBase;
       break;
     case "baixo":
-      novaPosicao.y += velocidade;
+      novaPosicao.y += velocidadeBase;
       break;
     case "esquerda":
-      novaPosicao.x -= velocidade;
+      novaPosicao.x -= velocidadeBase;
       break;
     case "cima":
-      novaPosicao.y -= velocidade;
+      novaPosicao.y -= velocidadeBase;
       break;
   }
 
@@ -147,27 +139,23 @@ function atualizarPosicao() {
       "z-index": "1",
     });
 
-    if (index !== 0 && cobra[0].x === segmento.x && cobra[0].y === segmento.y) {
-      reiniciar();
-      return;
-    } else if (
-      novaPosicao.x >= 600 ||
-      novaPosicao.y >= 600 ||
-      novaPosicao.x < 0 ||
-      novaPosicao.y < 0
-    ) {
+    if(
+      (index !== 0 && cobra[0].x === segmento.x && cobra[0].y === segmento.y) ||
+      (novaPosicao.x >= 600 ||
+        novaPosicao.y >= 600 ||
+        novaPosicao.x < 0 ||
+        novaPosicao.y < 0)
+    ){
       reiniciar();
     }
   });
 }
 
 function inteiroRandomObstaculo(min, max) {
-  validacaoX = Math.floor(Math.random() * (max - min + 1) + min) * 30;
-  while (validacaoX !== 150) {
-    if (validacaoX === 150) {
-      validacaoX = Math.floor(Math.random() * (max - min + 1) + min) * 30;
-    }
-    return validacaoX;
+  while(true) {
+    let validacaoX = Math.floor(Math.random() * (max - min + 1) + min) * 30;
+    if(validacaoX !== 150)
+      return validacaoX;
   }
 }
 function inteiroRandomComida(min, max) {
@@ -184,7 +172,7 @@ function geraPosicao(geraQuant) {
       posY = inteiroRandomObstaculo(1, 19);
       posicaoUnica =
         !obstaculo.some(
-          (posicao) => posicao[0] === posX && posicao[1] === posY
+          (obstaculoPos) => obstaculoPos[0] === posX && obstaculoPos[1] === posY
         ) &&
         !obstaculo.some(
           (obstaculoPos) =>
@@ -253,8 +241,8 @@ function vitoria() {
 
 function bateuObstaculo() {
   let bateuCabeca = cobra[0];
-  obstaculo.forEach((obst) => {
-    if (bateuCabeca.x === obst[0] && bateuCabeca.y === obst[1]) {
+  obstaculo.forEach((obstaculoPos) => {
+    if (bateuCabeca.x === obstaculoPos[0] && bateuCabeca.y === obstaculoPos[1]) {
       reiniciar();
       return;
     }
@@ -271,9 +259,9 @@ function comeuComida() {
     $("#pontComida").text(pontuacaoComida);
     clearInterval(attPosicao);
     clearInterval(attVerificacoes);
-    aumentoVelocidade = aumentoVelocidade - 2;
-    attPosicao = setInterval(atualizarPosicao, aumentoVelocidade);
-    attVerificacoes = setInterval(verificarJogo, aumentoVelocidade);
+    velocidade = velocidade - 2;
+    attPosicao = setInterval(atualizarPosicao, velocidade);
+    attVerificacoes = setInterval(verificarJogo, velocidade);
   }
 }
 
